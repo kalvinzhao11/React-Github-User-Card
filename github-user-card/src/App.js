@@ -73,9 +73,9 @@ class App extends Component {
     })
   }
 
-  // GitHubCalendar(".calendar", "kalvinzhao11");
-
   render() {
+    GitHubCalendar(".calendar", `${this.state.username}`);
+
     return (
     <div class="card">
       <p>Github Card</p>
