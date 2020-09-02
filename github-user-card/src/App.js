@@ -4,14 +4,10 @@ import GitHubCalendar from 'github-calendar'
 import { Button, Input } from 'reactstrap';
 import styled from 'styled-components'
 import './App.css';
+import Followers from './components/Followers';
 
 const Div = styled.div `
   text-align: center;
-`
-
-const P = styled.p `
-  text-decoration: underline;
-  color: red;
 `
 
 class App extends Component {
@@ -106,9 +102,10 @@ class App extends Component {
           <a href={this.state.user.html_url}>{this.state.user.html_url}</a>
         </p>
         <p>Followers: {this.state.user.followers}</p>
+        <h4>Followers</h4>
         { 
           this.state.followers ? this.state.followers.map(follower => (
-             <P key={follower.id} value={follower.login} onClick={this.onClick}>{follower.login}</P>
+            <Followers follower={follower} onClick={this.onClick}/>
           )) : ''
         }
         <p>Following: {this.state.user.following}</p>
